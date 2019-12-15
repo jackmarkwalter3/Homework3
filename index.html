@@ -17,9 +17,20 @@
       placeholder="Your Secure Password"
       aria-label="Generated Password"
     ></textarea>
+    <label for="length">Password lengh</label>
+    <input type="number" id="length" min="8" max="128" value="20" />
+    <label for="uppercase">Include uppercase letters</label>
+    <input type="checkbox" id="uppercase" checked />
+    <label for="lowercase">Include lowercase letters</label>
+    <input type="checkbox" id="lowercase" checked />
+    <label for="numbers">Include numbers</label>
+    <input type="checkbox" id="numbers" checked />
+    <label for="symbols">Include special characters</label>
+    <input type="checkbox" id="symbols" checked />
     <button id="generate">Generate Password</button>
-    <button id="copy">
+    <button id="clipboard">
       Copy to Clipboard
     </button>
+    <script src="./script.js"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 // DOM elements
-const resultEl = document.getElementById("result");
+const resultEl = document.getElementById("password");
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
 const lowercaseEl = document.getElementById("lowercase");
@@ -29,18 +29,18 @@ generateEl.addEventListener("click", () => {
 
 // Copy password to clipboard
 clipboardEl.addEventListener("click", () => {
-    const textarea = document.createElement("textarea");
+    const hiddenBoard = document.createElement("textarea");
     const password = resultEl.innerText;
 
     if(!password) {
         return;
     }
 
-    textarea.value = password;
-    document.body.appendChile(textarea);
-    textarea.select();
+    hiddenBoard.value = password;
+    document.body.appendChild(hiddenBoard);
+    hiddenBoard.select();
     document.execCommand("copy");
-    textarea.remove();
+    hiddenBoard.remove();
     alert("Password copied to clipboard!");
 });
 
@@ -66,7 +66,7 @@ function generatePassword(lower, upper, number, symbol, length) {
     }
 
     for(let i = 0; i < length; i += typesCount) {
-        typesCount.Arr.forEach(type => {
+        typesArr.forEach(type => {
             const funcName = Object.keys(type)[0];
             console.log("funcName: ", funcName)
 
@@ -75,6 +75,8 @@ function generatePassword(lower, upper, number, symbol, length) {
     }
 
     const finalPassword = generatedPassword.slice(0, length);
+
+    return finalPassword;
 }
 
 // Generator functions - https://www.w3schools.com/html/html_charset.asp
